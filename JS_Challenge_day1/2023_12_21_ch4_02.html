@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드쇼</title>
+    <style>
+        .container {
+            width: 370px;
+            height: 500px;
+            overflow: hidden; 
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s; 
+            width: calc(370px * 4); 
+        }
+        .slide_image {
+            width: 370px;
+            height: 500px;
+            border-radius: 20px;
+        }
+        img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel">
+            <div class="slide_image"><img src="daejeon.jpg"></div>
+            <div class="slide_image"><img src="jeju.jpg"></div>
+            <div class="slide_image"><img src="hangang1.jpg"></div>
+            <div class="slide_image"><img src="hangang2.jpg"></div>
+        </div>
+    </div>
+    <input type="button" onclick="slide_previous()" value="&#8592;">
+    <input type="button" onclick="slide_city(1)" value="대전">
+    <input type="button" onclick="slide_city(2)" value="제주">
+    <input type="button" onclick="slide_city(3)" value="한강-낮">
+    <input type="button" onclick="slide_city(4)" value="한강-밤">
+    <input type="button" onclick="slide_next()" value="&#8594;">
+
+    <script>
+        let current = 1;
+        const slide_length = document.querySelectorAll(".slide_image").length;
+        console.log(slide_length)
+        const $carousel = document.querySelector(".carousel");
+        
+        function slide_next() {
+            if (current !== slide_length){
+                current++;
+                $carousel.style.transform = `translateX(-${(current-1) * 370}px)`;
+            } else {
+                current = 1;
+                $carousel.style.transform = `translateX(0px)`;
+            }
+        }
+
+        function slide_previous() {
+            if (current !== 1) {
+                current--;
+                $carousel.style.transform = `translateX(-${(current-1) * 370}px)`;
+            } else {
+                current = slide_length;
+                $carousel.style.transform = `translateX(-${(slide_length-1)* 370}px)`;
+            }
+        }
+        function slide_city(index) {
+            current = index;
+            $carousel.style.transform = `translateX(-${(index-1) * 370}px)`;
+        }
+    </script>
+</body>
+</html>

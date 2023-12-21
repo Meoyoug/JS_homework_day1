@@ -1,0 +1,81 @@
+*{
+    text-align: center;
+}
+
+html{
+    width: 500px;
+    height: 600px;
+    box-sizing: content-box;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-width: 5px;
+    border-radius: 20px;
+    /*background-color: beige;*/
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    
+}
+fieldset{
+    width: 400px;
+    height: 600px;
+    background-color: rgb(255, 254, 238);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 5px rgb(115, 60, 12);
+
+}
+input{
+    margin-bottom: 10px;
+    width: 300px;
+    height: 25px;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(72, 186, 87);
+    text-align: left;
+}
+#Verification_code_recieve, #Verification_code_check{
+    width: auto;
+    margin-bottom: 10px;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(72, 186, 87);
+    background-color: rgb(224, 255, 248);
+    text-align: center;
+}
+
+select{
+    margin-bottom: 10px;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: rgb(72, 186, 87);
+    width: 300px;
+    height: 25px;
+}
+
+#phone_first_num{
+    box-sizing: content-box;
+    width: 70px;
+}
+#phone_middle_num{
+    box-sizing: content-box;
+    width: 92px;
+}
+#phone_last_num{
+    box-sizing: content-box;
+    width: 92px;
+}
+#man{
+    width: 18px;
+    height: 18px;
+}
+#female{
+    width: 18px;
+    height: 18px;
+}
+#signup{
+    text-align: center;
+    box-sizing: content-box;
+    background-color: rgb(224, 255, 248);
+    width: 60px;
+}

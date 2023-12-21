@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="sign_up.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <header>
+            <h1>OZ초격차 회원가입</h1>
+            <br>
+        </header>
+        <main>
+            <form method="post" action="oz_coding_school.php">
+                <input type="email" id="email" placeholder="이메일을 입력해주세요." name="email"><br>
+                <input type="text" id="name" placeholder="이름을 입력해주세요." name="name"><br>
+                <input type="password" id="pw" placeholder="비밀번호를 입력해주세요." name="pw"><br>
+                <input type="password" id="pw_check" placeholder="비밀번호를 다시 입력해주세요." name="pw_check"><br>
+                <div id="PhoneNumber">
+                    <input type="text" id="phone_first_num" name="phone_first_num" placeholder="010">
+                    <span>-</span>
+                    <input type="text" id="phone_middle_num" name="phone_middle_num" placeholder="1234">
+                    <span>-</span>
+                    <input type="text" id="phone_last_num" name="phone_last_num" placeholder="5678">
+                </div>
+                <div id=Verification>
+                    <input type="button" id="Verification_code_recieve" value="인증번호 받기">
+                    <br>
+                    <input type="text" id="Verification_code" placeholder="인증번호를 입력해주세요">
+                    <br>
+                    <input type="button" id="Verification_code_check" value="인증확인">
+                    <br>
+                </div>
+                <select id="region">
+                    <option>- 지역을 선택해주세요 -</option>
+                    <option>서울</option>
+                    <option>경기</option>
+                    <option>충북</option>
+                    <option>충남</option>
+                    <option>경북</option>
+                    <option>경남</option>
+                    <option>전북</option>
+                    <option>전남</option>
+                    <option>강원</option>
+                    <option>제주</option>
+                    <option>부산</option>
+                    <option>대전</option>
+                    <option>인천</option>
+                    <option>울산</option>
+                    <option>대구</option>
+                    <option>광주</option>
+                </select>
+                <br>
+                <input type="radio" id="man" name="gender" value="남자"> 남성
+                <input type="radio" id="female" name="gender" value="여자"> 여성
+                </p>
+                <input type="button" id="signup" value="가입하기" onclick="get_data()">
+            </form>    
+        </main>
+    </fieldset>
+    <script src= "sign_up.js"></script>
+</body>
+</html>
