@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임</title>
+    <style>
+        body{
+            margin : auto;
+            background-color: rgb(12, 12, 64);
+            color: white;
+        }
+        .container{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+        input{
+            background-color: rgb(254, 254, 254);
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+            border: 3px double blue;
+        }
+        button{
+            background-color: rgb(255, 255, 170);
+            height: 30px;
+            width: 50px;
+            border-radius: 5px;
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mystery Number 맞추기</h1>
+        <p>1부터 100사이의 숫자를 입력하세요!</p>
+        <div class="input_num">
+            <input type="text" id="userInput">
+            <button onclick="checkGuess()">입력</button>
+        </div>
+        <p id="hint"></p>
+    </div>
+    <script>
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            const userInput = Math.floor(Number(document.getElementById('userInput').value));
+            const hintElement = document.getElementById('hint');
+
+            if (Number.isInteger(userInput) && userInput > 0) {
+                if (userInput === randomNumber) {
+                hintElement.textContent = `축하합니다! ${randomNumber}를 맞추셨습니다!`;
+                } else if (userInput > randomNumber) {
+                hintElement.textContent = '숫자를 좀만 낮춰보까?';
+                } else {
+                hintElement.textContent = '숫자를 좀 더 높이까?';
+                }
+            } else {
+                hintElement.textContent = '1부터 100사이의 양의 정수를 입력하세요.';
+            }
+        }
+    </script>
+</body>
+</html>

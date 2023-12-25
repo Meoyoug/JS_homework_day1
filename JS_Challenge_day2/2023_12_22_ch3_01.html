@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간고사 등급</title>
+    <style>
+        table{
+            border: 1px solid black;
+            padding: 0;
+        }
+        td{
+            border-left: 1px solid black;
+        }
+        #row_one td, #row_one th{
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>중간고사 등급컷</h1>
+    <table class="table">
+        <tr id="row_one">
+            <th>점수</th>
+            <td>90점이상</td>
+            <td>80~89점</td>
+            <td>70~79점</td>
+            <td>60~69점</td>
+            <td>60점미만</td>
+        </tr>
+        <tr>
+            <th>학점</th>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+        </tr>
+    </table>
+    <p id="result"></p>
+    <script>
+        const point = parseInt(prompt("중간고사 점수를 입력하세요"))
+        let grade ;
+        
+        if(point >= 90){
+            grade = "A"
+        }
+        else if(point >= 80){
+            grade = "B"
+        }
+        else if(point >= 70){
+            grade = "C"
+        }
+        else if(point >=60){
+            grade = "D"
+        }
+        else{
+            grade = "F"
+        }
+        const result = document.getElementById("result")
+        result.append(`나의 기말고사 점수는 ${point}점, 학점은 ${grade}!!!`)
+
+    </script>
+</body>
+</html>

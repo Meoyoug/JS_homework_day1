@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 4의 배수 5개씩 출력하기</title>
+</head>
+<body>
+    <script>
+        const start_range = parseInt(prompt("범위의 시작으로 사용할 양의 정수를 입력하시오."))
+        const end_range = parseInt(prompt("범위의 끝으로 사용할 양의 정수를 입력하시오."))
+        let i = start_range;
+        let count = 0;
+        while( i <= end_range){
+            if(i%4 === 0){
+                count += 1;
+                document.write(`${i}&nbsp;&nbsp;`)
+                if(count == 5){
+                    document.write(`<br>`)
+                    count = 0;
+                }
+            }
+            i++;
+        }
+    </script>
+</body>
+</html>
