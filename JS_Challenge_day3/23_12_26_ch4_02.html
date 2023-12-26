@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 만들기</title>
+</head>
+<body>
+    <div id="container">
+        <table border="1">
+        </table>
+    </div>
+    <script>
+    const table = document.querySelector('table');
+
+    // 첫 번째 행(단 제목) 생성 및 추가
+    const headerRow = document.createElement('tr');
+    
+    for (let i = 1; i <= 9; i++) {
+        const headerCell = document.createElement('th');
+        headerCell.textContent = `${i} 단`;
+        headerRow.appendChild(headerCell);
+    }
+    table.appendChild(headerRow);
+
+    // 구구단 열로 표시
+    for (let i = 1; i <= 9; i++) {
+        const row = document.createElement('tr');
+
+        for (let j = 1; j <= 9; j++) {
+            const cell = document.createElement('td');
+            cell.textContent = `${j} x ${i} = ${i * j}`;
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+    }
+    </script>
+</body>
+</html>

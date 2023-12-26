@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 반환</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        console.log(createParagraph("5252","red"))
+        console.log(createParagraph("이렇게하면","green"))
+        console.log(createParagraph("다르게출력이가능하지롱","beige"))
+
+        function createParagraph(p_content,color){
+            const p = document.createElement("p")
+            p.textContent = p_content
+            p.style.color = color
+            document.querySelector("#container").append(p)
+
+            return `방금 만든 태그의 콘텐츠 : ${p_content}, 색상: ${color}`
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스톱워치</title>
+</head>
+<body>
+    <div id="container">
+        <h1>스톱워치</h1>
+        <div id="display">00:00:00:000</div>
+        <div id="buttons">
+            <button class="button" id="start">시작</button>
+            <button class="button" id="stop">중지</button>
+            <button class="button" id="reset">초기화</button>
+        </div>
+    </div>
+
+    <script>
+        function Stopwatch() {
+            this.timer = null;
+            this.isRunning = false;
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+            this.stopwatchDisplay = document.getElementById('display');
+            this.startButton = document.getElementById('start');
+            this.stopButton = document.getElementById('stop');
+            this.resetButton = document.getElementById('reset');
+
+            this.startTimer = function () {
+    if (!this.isRunning) {
+      this.isRunning = true;
+      this.timer = setInterval(this.updateStopwatch.bind(this), 10); // 10밀리초마다 업데이트
+    }
+  };
+
+  this.stopTimer = function () {
+    this.isRunning = false;
+    clearInterval(this.timer);
+  };
+
+  this.resetTimer = function () {
+    this.isRunning = false;
+    clearInterval(this.timer);
+    this.hours = 0;
+    this.minutes = 0;
+    this.seconds = 0;
+    this.milliseconds = 0;
+    this.updateDisplay();
+  };
+
+  this.updateStopwatch = function () {
+    this.milliseconds += 10;
+    if (this.milliseconds === 1000) {
+      this.milliseconds = 0;
+      this.seconds++;
+    }
+    if (this.seconds === 60) {
+      this.seconds = 0;
+      this.minutes++;
+    }
+    if (this.minutes === 60) {
+      this.minutes = 0;
+      this.hours++;
+    }
+    this.updateDisplay();
+  };
+
+  this.updateDisplay = function () {
+    const formattedHours = ('0' + this.hours).slice(-2);
+    const formattedMinutes = ('0' + this.minutes).slice(-2);
+    const formattedSeconds = ('0' + this.seconds).slice(-2);
+    const formattedMilliseconds = ('00' + this.milliseconds).slice(-3);
+    this.stopwatchDisplay.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+  };
+
+  this.startButton.addEventListener('click', this.startTimer.bind(this));
+  this.stopButton.addEventListener('click', this.stopTimer.bind(this));
+  this.resetButton.addEventListener('click', this.resetTimer.bind(this));
+}
+
+const stopwatch = new Stopwatch();
+    </script>
+</body>
+</html>

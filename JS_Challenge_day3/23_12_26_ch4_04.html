@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스톱워치</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            text-align: center;
+        }
+        #display{
+            height: 50px;
+            width: 240px;
+            font-size: 30px;
+            text-align: center;
+        }
+        button{
+            background-color: beige;
+            border: 2px solid brown;
+            height: 40px;
+            width: 80px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>스톱워치</h1>
+        <div id="display">00:00:00:000</div>
+        <div id="buttons">
+            <button class="button" id="start">start</button>
+            <button class="button" id="stop">stop</button>
+            <button class="button" id="reset">reset</button>
+        </div>
+    </div>
+
+    <script>
+        function Stopwatch(){
+            this.timer = null;
+            this.isRunning = false;
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+            this.milliseconds = 0;
+
+            this.display = document.getElementById("display");
+            this.startBtn = document.getElementById("start");
+            this.stopBtn = document.getElementById("stop");
+            this.resetBtn = document.getElementById("reset");
+
+            this.startTimer = function(){
+                if(!this.isRunning){
+                    this.isRunning = true;
+                    this.timer = setInterval(this.updateStopwatch.bind(this), 10);
+                }
+            };
+            this.stopTimer = function(){
+                if(this.isRunning){
+                    this.isRunning = false;
+                    clearInterval(this.timer);
+                }
+            };
+            this.resetTimer = function(){
+                this.isRunning = false;
+                clearInterval(this.timer);
+                this.hours = 0;
+                this.minutes = 0;
+                this.seconds = 0;
+                this.milliseconds = 0;
+                this.updateDisplay();
+            };
+            this.updateStopwatch= function(){
+                this.milliseconds += 10;
+                if(this.milliseconds === 1000){
+                    this.milliseconds = 0;
+                    this.seconds++;
+                }
+                if(this.seconds === 60){
+                    this.seconds = 0;
+                    this.minutes++;
+                }
+                if(this.minutes === 60){
+                    this.minutes = 0;
+                    this.hours++;                          
+                }
+                this.updateDisplay();
+            };
+            this.updateDisplay = function(){
+                const formattedHours = ('0' + this.hours).slice(-2);
+                const formattedMinutes = ('0' + this.minutes).slice(-2);
+                const formattedSeconds = ('0' + this.seconds).slice(-2);
+                const formattedmilliSeconds = ('00' + this.milliseconds).slice(-3);
+                this.display.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedmilliSeconds}`
+            };
+            this.startBtn.addEventListener('click',this.startTimer.bind(this));
+            this.stopBtn.addEventListener('click',this.stopTimer.bind(this));
+            this.resetBtn.addEventListener('click',this.resetTimer.bind(this));
+        }
+
+        const stopwatch = new Stopwatch();
+    </script>
+</body>
+</html>

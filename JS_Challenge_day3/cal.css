@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+    display: grid;
+}
+button{
+    height: 50px;
+    width: 60px;
+    border-radius: 5px;
+    background-color: white;
+}
+#display{
+    border: 1px solid rgb(42, 42, 255) ;
+    height: 50px;
+    width: 260px;
+    border-radius: 10px;
+    background-color: rgb(252, 245, 237);
+    text-align: right;
+    font-size: 20px;
+    display: grid;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+#container{
+    border: 2px solid black;
+    padding: 0 30px;
+    border-radius: 10px;
+    background-color: rgb(124, 122, 120);
+}
