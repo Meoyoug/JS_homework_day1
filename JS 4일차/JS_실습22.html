@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 메소드</title>
+</head>
+<body>
+    <p id="now"></p>
+    <button id="stop">멈춰</button>
+    <script>
+        const btn = document.getElementById("stop")
+
+
+        //const then = new Date(2023,11,25,12,49,12)
+        function Timer(){
+            this.p = document.getElementById("now")
+            this.now = new Date()
+
+            this.year = now.getFullYear()
+            this.month = now.getMonth()
+            this.Day = now.getDate()
+            this.hour = now.getHours()
+            this.minute = now.getMinutes()
+            this.second = now.getSeconds()
+            this.millisec = now.getMilliseconds()
+
+            this.p.textContent = `${this.year}/${this.month+1}/${this.Day} ${this.hour}:${this.minute}:${this.second}:${this.millisec}`
+            
+
+
+
+        }
+
+        timer = setInterval(Timer,10)
+        //console.log(then)
+        
+        btn.addEventListener('click',function(){
+                clearInterval(timer)
+        })
+    </script>
+</body>
+</html>

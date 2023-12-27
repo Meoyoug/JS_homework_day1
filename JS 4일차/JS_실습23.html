@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    
+    <script>
+        const vos = ["박지헌", "최현준", "김경록"]
+        console.log(vos)
+        console.log(vos[0])
+        console.log(vos[1])
+        console.log(vos[2])
+
+        vos[0] = "지헌"
+        console.log(vos[0])
+
+        for(let i = 0; i < 3; i += 1){
+            console.log(vos[i])
+        }
+
+        vos.push("제 4의멤버")
+        console.log(vos)
+        
+        vos.pop()
+        console.log(vos)
+
+        console.log(vos.indexOf("김경록"))
+
+        //vos.splice(1,2)
+        //console.log(vos)
+
+        vos.splice(0,3, "지헌", "현준", "경록")
+        console.log(vos)
+
+        vos.forEach(function(item){
+            console.log("forEach에서 호출된함수들" + item)
+        })
+
+
+
+
+    </script>
+
+</body>
+</html>

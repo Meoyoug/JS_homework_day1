@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cool{
+            height: 300px;
+            width: 300px;
+            border-radius: 150px;
+        }
+    </style>
+</head>
+<body>
+    <img src="jeju.jpg">
+    <br>
+    <button id="add">add style</button>
+    <button id="remove">remove style</button>
+    <button id="toggle">toggle style</button>
+
+    <script>
+        const img = document.querySelector("img")
+        const addBtn = document.querySelector("#add")
+        const removeBtn = document.querySelector("#remove")
+        const toggleBtn = document.querySelector("#toggle")
+
+        console.log(img.classList)
+
+        addBtn.addEventListener('click',function(){
+            img.classList.add("cool")
+            console.log(img.classList.contains("cool"))
+        })
+        removeBtn.addEventListener('click',function(){
+            img.classList.remove("cool")
+            console.log(img.classList.contains("cool"))
+        })
+        toggleBtn.addEventListener('click', function(){
+            img.classList.toggle("cool")
+            console.log(img.classList.contains("cool"))
+
+        })
+    </script>
+</body>
+</html>

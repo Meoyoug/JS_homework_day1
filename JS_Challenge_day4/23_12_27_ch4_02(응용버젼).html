@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드쇼 멈춰!</title>
+    <style>
+        .container {
+            width: 370px;
+            height: 500px;
+            overflow: hidden; 
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s; 
+            width: calc(370px * 4); 
+        }
+        .slide_image {
+            width: 370px;
+            height: 500px;
+            border-radius: 20px;
+        }
+        img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="carousel">
+            <div class="slide_image"><img src="daejeon.jpg"></div>
+            <div class="slide_image"><img src="jeju.jpg"></div>
+            <div class="slide_image"><img src="hangang1.jpg"></div>
+            <div class="slide_image"><img src="hangang2.jpg"></div>
+        </div>
+    </div>
+    <button id="stop">멈춰</button>
+    <button id="start">시작</button>
+ 
+
+    <script>
+        let current = 1;
+        const carousel = document.querySelector(".carousel");
+        let intervalId;
+
+        function slide_img() {
+            carousel.style.transform = `translateX(-${(current - 1) * 370}px)`;
+            current++;
+            if (current === 5) {
+                current = 1;
+            }
+        }
+
+        function start() {
+            intervalId = setInterval(slide_img, 400);
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        document.getElementById("stop").addEventListener("click", stop);
+        document.getElementById("start").addEventListener("click", start);
+    </script>
+</body>
+</html>

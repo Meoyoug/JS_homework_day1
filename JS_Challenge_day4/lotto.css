@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+#display{
+    height: 150px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.eachnum{
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    border-radius: 40px;
+    align-items: center;
+    text-align: center;
+    display: grid;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+}
+button{
+    height: 40px;
+    width: 80px;
+    margin: 20px;
+    background-color: bisque;
+    border-radius: 5px;
+}

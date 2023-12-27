@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 만드는 생성자</title>
+</head>
+<body>
+    
+
+    <script>
+        function Singer(singerName, presentSong){
+            this.name = singerName
+            this.song = presentSong
+            this.member = prompt("멤버들을 입력해주세요.")
+            this.singing = function(){
+                lylics = prompt('대표곡 가사를 입력해 주세요')
+                console.log(lylics)
+            }
+        }
+
+        const VOS = Singer("V.O.S","울어");
+        const IVE = Singer("IVE","Baddie");
+        VOS.singing()
+        IVE.singing()
+    </script>
+</body>
+</html>

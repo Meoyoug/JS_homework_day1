@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #container{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+        #imgbox{
+            display: flex;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>가위..바위..보!</h1>
+        <form id="form">
+            <select name="myPick">
+                <option>가위</option>
+                <option>바위</option>
+                <option>보</option>
+            </select>
+            <input type="submit" id="result" value="결과 확인">
+        </form>
+        <div id="imgbox">
+            <div id="display_me"></div>
+            <div id="display_com"></div>
+        </div>
+        <div id="result_display"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("form")
+
+        function rockPaperSsiosor(myPick){
+            this.display_me = document.getElementById("display_me")
+            this.display_com = document.getElementById("display_com")
+            this.result = document.getElementById("result_display")
+            this.me = myPick
+            this.arr = ["가위","바위","보"]
+            this.rn = Math.floor(Math.random()*3)
+            this.com = this.arr[this.rn]
+            this.insertImg = function(){
+                const myPickImg = `<img src="${this.me}.png" alt="playerPick">`;
+                const comPickImg = `<img src="${this.com}.png" alt="ComputerPick">`;
+
+                this.display_me.innerHTML = `${myPickImg}`
+                this.display_com.innerHTML = `${comPickImg}`
+            }
+            
+            this.compare = function(){
+                if(this.me === this.com){
+                    this.result.textContent = "비겼습니다. 승부는 내야지! 한판더?"
+                } else if(
+                    (this.me === arr[0] && this.com === arr[2]) ||
+                    (this.me === arr[1] && this.com === arr[0]) ||
+                    (this.me === arr[2] && this.com === arr[1])
+                ){
+                    this.result.textContent = "이겼습니다! 이겼으니 한판더?"
+                } else {
+                    this.result.textContent = "졌습니다..ㅠㅠ 아쉬우니까 한판더?"
+                }
+            }
+            this.insertImg()
+            this.compare()   
+        }
+        form.addEventListener("submit",function(event){
+            event.preventDefault()
+            const myPick = event.target.myPick.value;
+            rockPaperSsiosor(myPick)
+        })
+    </script>
+</body>
+</html>

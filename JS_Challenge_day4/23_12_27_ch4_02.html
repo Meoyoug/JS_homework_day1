@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 멈춰!</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <button id="stop">멈춰</button>
+    <button id="start">시작</button>
+ 
+
+    <script>
+        let randomImg;
+        const startBtn = document.getElementById("start")
+        const stopBtn = document.getElementById("stop")
+        function chaneImg(){
+            const display = document.querySelector('.container')
+            const rn = Math.floor(Math.random() * 4)+1
+            display.style.backgroundImage = `url(${rn}.jpg)`
+        }
+        function start() {
+            intervalId = setInterval(chaneImg, 200);
+        }
+
+        function stop() {
+            clearInterval(intervalId);
+        }
+
+        stopBtn.addEventListener("click", stop);
+        startBtn.addEventListener("click", start);
+    </script>
+</body>
+</html>

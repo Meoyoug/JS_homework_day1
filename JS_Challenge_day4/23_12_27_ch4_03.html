@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이스크림 냉장고</title>
+</head>
+<body>
+    <div id="container">
+        <div id="buttons">
+            <button id="add">아이스크림 종류 추가</button>
+            <button id="output">아이스크림 이름 출력</button>
+            <button id="listOutput">입력한 아이스크림 목록 출력</button>
+        </div>
+        <div id="text">
+            <p><strong>입력한 아이스크림 목록 : </strong></p>
+        </div>
+    </div>
+
+    <script>
+        let ice = []
+        const display = document.querySelector('#text')
+        const addBtn = document.getElementById("add")
+        const outputBtn = document.getElementById("output")
+        const listBtn = document.getElementById("listOutput")
+        const p = document.createElement('p')
+        display.append(p)
+        let count = 0;
+        function inputIceCream(){
+            ice.push(prompt("추가하고 싶은 아이스크림 이름을 입력해주세요"))
+        }
+        function output(){
+            for(i = 0; i < ice.length; i++){
+                alert(`${ice[i]}`)
+            }
+        }
+        function listOutput(){
+            while(count < ice.length){
+                if(count === 0){
+                    p.textContent += `${ice[count]}`
+                } else {
+                    p.textContent += `, ${ice[count]}`
+                }
+                count++;
+            }
+        }
+
+        addBtn.addEventListener('click',inputIceCream)
+        outputBtn.addEventListener('click',output)
+        listBtn.addEventListener('click',listOutput)
+    </script>
+</body>
+</html>
