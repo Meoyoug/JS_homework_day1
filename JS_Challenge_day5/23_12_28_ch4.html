@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>떡잎유치원 멀리뛰기</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+        }
+        table{
+            width: 300px;
+            height: 400px;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>떡잎 유치원 멀리뛰기 결과</h1>
+        <table id="table">
+            <tr>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+            <tr>
+                <td class="name">짱구</td>
+                <td class="score">45</td>
+            </tr>
+            <tr>
+                <td class="name">맹구</td>
+                <td class="score">75</td>
+            </tr>
+            <tr>
+                <td class="name">철수</td>
+                <td class="score">60</td>
+            </tr>
+            <tr>
+                <td class="name">훈이</td>
+                <td class="score">50</td>
+            </tr>
+            <tr>
+                <td class="name">유리</td>
+                <td class="score">100</td>
+            </tr>
+            <tr>
+                <td class="name">수지</td>
+                <td class="score">86</td>
+            </tr>
+        </table>
+        <div id="result"><strong>75점이 넘는 사람 : </strong></div>
+    </div>
+    <script>
+        const result = document.getElementById("result")
+        const score = document.querySelectorAll(".score")
+        const kidName = document.querySelectorAll(".name")
+        function resultDisplay(){
+            const kids = [] //정렬을 위해 담을 배열
+            for(let i = 0; i < score.length; i++){
+                kids.push({name : kidName[i].textContent, score : parseInt(score[i].textContent)})
+            } //원생들을 배열에 각각 객체 리터럴로 담기.
+
+            kids.sort((a,b)=>b.score - a.score)// 정렬하기
+            
+            for(const kid of kids){
+                if(kid.score >= 75){
+                    const p = document.createElement('p')
+                    p.textContent = `${kid.name} : ${kid.score}점`
+                    result.append(p)
+                }
+            }
+        }
+        resultDisplay()
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="countdown.css" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Countdown Timer</h1>
+        <h2>목표한 날짜(년 월 일)을 입력하세요!</h2>
+        <div id="select">
+            <form id="date-select">
+                <div id="input-text">
+                    <input type="text" name="year" placeholder="0000"> 년
+                    <input type="text" name="month" placeholder="00"> 월
+                    <input type="text" name="day" placeholder="00"> 일
+                </div>
+                <input type="submit" value="Start CountDown" id="button1">
+            </form>
+        </div>
+        <h1>남은 시간</h1>
+        <div id="timerbox">
+            <div class="time" id="year"></div>
+            <div class="time" id="month"></div>
+            <div class="time" id="day"></div>
+            <div class="time" id="hour"></div>
+            <div class="time" id="minute"></div>
+            <div class="time" id="second"></div>
+        </div>
+        <button id="reset">RESET</button>
+    </div>
+    <div class="footer">
+        © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
+        reserved. Developed by <a href="#">[Lim Dae Yong]</a>.
+    </div>
+    <script src="countdown.js"></script>
+</body>
+</html>

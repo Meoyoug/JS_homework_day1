@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 리터럴</title>
+</head>
+<body>
+    
+    <script>
+        const cat = {
+            species : "포유류",
+            title : "고양이"
+        }
+
+        console.log(cat.species)
+        console.log(cat["title"])
+
+        const cream = {
+            ...cat,
+            name : "크림",
+            age : 4,
+            favorite : ["박스", "캣닢", "캣타워"]
+        }
+
+        console.log(...cream.favorite)
+        console.log(cream.age)
+    </script>
+</body>
+</html>
