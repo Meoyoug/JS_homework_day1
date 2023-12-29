@@ -20,7 +20,7 @@ html{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-items: space-around;
+    justify-content: space-around;
 }
 #date-select{
     display: flex;
@@ -28,14 +28,15 @@ html{
     justify-items: center;
 }
 .time{
-    height: 15%;
-    width: 15%;
     margin: 10px;
     color: rgb(54, 67, 243);
     font-weight: 800;
-    font-size: 35px;
-    text-align: center;
+    font-size: 50px;
+    text-align: right;
+    transition: opacity 1 ease-in;
+    opacity: 1;
 }
+
 h1{
     margin: 0;
 }
@@ -76,7 +77,9 @@ input{
     font-size: 16px;
     margin-left: 10px;
 }
-
+.time.effect{
+    opacity: 0;
+} 
 @media screen and (max-width : 640px) {
     #date-select{
         display: grid;
@@ -91,3 +94,4 @@ input{
         font-size: 25px;
     }
 }
+
