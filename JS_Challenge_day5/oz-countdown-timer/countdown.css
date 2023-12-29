@@ -33,7 +33,7 @@ html{
     font-weight: 800;
     font-size: 50px;
     text-align: right;
-    transition: opacity 1 ease-in;
+    transition: opacity 1 ease;
     opacity: 1;
 }
 
